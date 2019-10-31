@@ -11,38 +11,38 @@ var attacking = false
 func _physics_process(delta):
 	
 	motion.y += GRAVITY
+	if attacking == false:
+		if Input.is_action_pressed("RIGHT"):
+			motion.x = SPEED
+			if is_on_floor():
+				$AnimatedSprite.play("Run")
+				$AnimatedSprite.flip_h = false
+		else:
+			motion.x = 0
+		
+		
+		if Input.is_action_pressed("LEFT"):
+			motion.x = -SPEED
+			if is_on_floor():
+				$AnimatedSprite.play("Run")
+				$AnimatedSprite.flip_h = true
+		
+		
+		
+		if Input.is_action_pressed("JUMP"):
+			if is_on_floor():
+				motion.y = -JUMP_HEIGHT
+				
+		if motion.y != 0:
+			if not is_on_floor():
+				$AnimatedSprite.play("Jump")
+				
+		if motion.x == 0:
+			if is_on_floor():
+				$AnimatedSprite.play("Idle")
 	
-	if Input.is_action_pressed("RIGHT"):
-		motion.x = SPEED
-		if is_on_floor():
-			$AnimatedSprite.play("Run")
-			$AnimatedSprite.flip_h = false
-	else:
-		motion.x = 0
 	
-	
-	if Input.is_action_pressed("LEFT"):
-		motion.x = -SPEED
-		if is_on_floor():
-			$AnimatedSprite.play("Run")
-			$AnimatedSprite.flip_h = true
-	
-	
-	
-	if Input.is_action_pressed("JUMP"):
-		if is_on_floor():
-			motion.y = -JUMP_HEIGHT
-			
-	if motion.y != 0:
-		if not is_on_floor():
-			$AnimatedSprite.play("Jump")
-			
-	if motion.x == 0:
-		if is_on_floor():
-			$AnimatedSprite.play("Idle")
-
-
-	motion = move_and_slide(motion, UP)
+		motion = move_and_slide(motion, UP)
 
 
 	
@@ -57,13 +57,15 @@ func _process(delta):
 
 
 func attack():
-	attacking = true
-	$AnimatedSprite.play("Attack")
-	if	not $AnimatedSprite.is_playing():
-		attacking = false
-	else:
-		pass
-	
+		attacking = true
+		$AnimatedSprite/AnimationPlayer.play("AAttack")
+		if	not $AnimatedSprite/AnimationPlayer.is_playing():
+			attacking = true
+		else:
+			attacking = false
+			pass
+		
+		
 	
 	
 	
