@@ -8,6 +8,9 @@ const UP = Vector2(0, -1)
 var motion = Vector2()
 var attacking = false
 
+func _ready():
+	$"Attack area/CollisionShape2D".disabled = true
+
 func _physics_process(delta):
 	
 	motion.y += GRAVITY
@@ -59,7 +62,7 @@ func _process(delta):
 func attack():
 		attacking = true
 		$AnimatedSprite/AnimationPlayer.play("AAttack")
-		if	not $AnimatedSprite/AnimationPlayer.is_playing():
+		if $AnimatedSprite/AnimationPlayer.current_animation == "AAtack":
 			attacking = true
 		else:
 			attacking = false
