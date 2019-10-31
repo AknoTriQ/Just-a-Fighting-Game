@@ -40,4 +40,23 @@ func _physics_process(delta):
 		if is_on_floor():
 			$AnimatedSprite.play("Idle")
 
+
 	motion = move_and_slide(motion, UP)
+
+
+	
+	
+	
+func _process(delta):
+		pass
+
+
+
+func attack():
+		pass
+	
+	
+	
+	
+	
+
