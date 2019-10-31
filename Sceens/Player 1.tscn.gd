@@ -6,6 +6,7 @@ const JUMP_HEIGHT = 220
 const UP = Vector2(0, -1)
 
 var motion = Vector2()
+var attacking = false
 
 func _physics_process(delta):
 	
@@ -48,11 +49,19 @@ func _physics_process(delta):
 	
 	
 func _process(delta):
+	if Input.is_action_just_pressed("ATTACK"):
+		attack()
+		
 		pass
 
 
 
 func attack():
+	attacking = true
+	$AnimatedSprite.play("Attack")
+	if	not $AnimatedSprite.is_playing("Attack"):
+		attacking = false
+	else:
 		pass
 	
 	
