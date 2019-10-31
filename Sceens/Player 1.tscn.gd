@@ -41,3 +41,18 @@ func _physics_process(delta):
 			$AnimatedSprite.play("Idle")
 
 	motion = move_and_slide(motion, UP)
+	
+	
+	
+func _process(delta):
+		pass
+
+
+
+func attack():
+		pass
+	
+	
+	
+	
+	
