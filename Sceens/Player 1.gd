@@ -62,7 +62,7 @@ func _process(delta):
 func attack():
 		attacking = true
 		$AnimatedSprite/AnimationPlayer.play("AAttack")
-		if $AnimatedSprite/AnimationPlayer.current_animation == "AAtack":
+		if $AnimatedSprite/AnimationPlayer.current_animation == "AAtack" and $AnimatedSprite/AnimationPlayer.is_playing():
 			attacking = true
 		else:
 			attacking = false

@@ -19,6 +19,11 @@ config/name="Just a fighting game"
 run/main_scene="res://Level One.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 RIGHT={
@@ -45,4 +50,5 @@ ATTACK={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.411765, 0.458824, 0.545098, 1 )
 environment/default_environment="res://default_env.tres"
